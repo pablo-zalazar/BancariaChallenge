@@ -2,7 +2,6 @@ import { Favorites } from "../../models/Favorite.js";
 
 export const removeFavoriteController = async (req, res) => {
   const { id } = req.params;
-  console.log(id);
   try {
     const existsFavorite = await Favorites.findAll({
       where: {
