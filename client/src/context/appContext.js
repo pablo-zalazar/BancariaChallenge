@@ -10,6 +10,7 @@ const AppProvider = ({ children }) => {
   const [myFavorites, setMyFavorites] = useState([]);
   const [allCharacters, setAllCharacters] = useState([]);
   const [filteredCharactersList, setFilteredCharactersList] = useState("");
+  const [characterDetails, setCharacterDetails] = useState(null);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [pages, setPages] = useState([]);
@@ -89,6 +90,17 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  const addCharacterDetails = async (id) => {
+    setLoading(true);
+    const { data } = await characters.getOne(id);
+    setCharacterDetails(data);
+    setLoading(false);
+  };
+
+  const removeCharacterDetails = () => {
+    setCharacterDetails(null);
+  };
+
   const data = {
     myFavorites,
     allCharacters,
@@ -98,6 +110,7 @@ const AppProvider = ({ children }) => {
     locationsList,
     selectedLocation,
     loading,
+    characterDetails,
     getFavorites,
     addToFavorites,
     removeFavorite,
@@ -106,6 +119,8 @@ const AppProvider = ({ children }) => {
     changeLoading,
     setCharactersList,
     changePage,
+    addCharacterDetails,
+    removeCharacterDetails,
   };
 
   return <AppContext.Provider value={data}>{children}</AppContext.Provider>;

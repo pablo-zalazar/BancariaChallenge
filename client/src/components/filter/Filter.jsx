@@ -11,7 +11,7 @@ function Filter() {
 
   return (
     <div className={Style.filter}>
-      <span>Locaciones</span>
+      <h4>Locaciones</h4>
       <select name="location" onChange={handleChange} defaultValue={selectedLocation}>
         <option value="all">todos</option>
         {locationsList.map((location) => (

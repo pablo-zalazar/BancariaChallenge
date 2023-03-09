@@ -8,7 +8,7 @@ function HomeCard({ character }) {
         <img src={character.image} alt="imagen" />
         <h3>{character.name}</h3>
       </div>
-      <Link to={`/detalles/${character.id}`}>Details</Link>
+      <Link to={`/detalles/${character.id}`}>Detalles</Link>
     </div>
   );
 }

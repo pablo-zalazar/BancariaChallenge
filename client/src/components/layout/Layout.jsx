@@ -18,7 +18,7 @@ function Layout({ children }) {
   return (
     <div className={Style.layout}>
       <Header />
-      {children}
+      <main>{children}</main>
       <ToastContainer />
     </div>
   );

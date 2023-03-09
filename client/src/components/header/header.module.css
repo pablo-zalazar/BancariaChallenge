@@ -1,6 +1,6 @@
 .header {
   background-color: rgb(240, 240, 240);
-  padding: 1rem 1.5rem;
+  padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -8,8 +8,8 @@
 }
 
 .header .logo {
-  width: 3rem;
-  height: 3rem;
+  width: 5rem;
+  height: 5rem;
 }
 
 .header .logo img {
@@ -22,7 +22,7 @@
   border-radius: 0.5rem;
   padding: 10px;
   font-weight: 700;
-  border: 2px solid rgb(0, 152, 255);
+  border: 3px solid rgb(0, 152, 255);
   transition: all 0.2s ease;
 }
 

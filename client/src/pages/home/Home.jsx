@@ -15,7 +15,7 @@ function Home() {
         await setCharactersList(selectedLocation);
       }
     })();
-  }, [selectedLocation, filteredCharactersList]);
+  }, [selectedLocation]);
 
   if (loading)
     return (

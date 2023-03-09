@@ -3,14 +3,14 @@ import style from "./header.module.css";
 
 function Header() {
   return (
-    <div className={style.header}>
+    <header className={style.header}>
       <Link to={"/"} className={style.logo}>
         <img src="/assets/logo.png" alt="logo" />
       </Link>
       <Link to={"/favoritos"} className={style.favButton}>
         Favoritos
       </Link>
-    </div>
+    </header>
   );
 }
 export default Header;

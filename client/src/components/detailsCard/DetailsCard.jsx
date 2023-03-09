@@ -64,38 +64,37 @@ function DetailsCard({ character }) {
 
   return (
     <div className={Style.details}>
-      <div>
-        <img src={character.image} alt="imagen" width={200} height={200} />
-        <h3>{character.name}</h3>
+      <img src={character.image} alt="imagen" />
+      <div className={Style.info}>
+        <div>
+          <h3>{character.name}</h3>
+          <p>
+            <span>Especie: </span>
+            {character.species}
+          </p>
+          <p>
+            <span>origen: </span>
+            {character.origin}
+          </p>
+          <p>
+            <span>Locacion: </span>
+            {character.location}
+          </p>
+          <p>
+            <span>Estado: </span>
+            {character.status}
+          </p>
+        </div>
+        {myFavorites.map((favorite) => favorite.id).includes(character.id) ? (
+          <button className={Style.favoriteRemove} onClick={handleRemoveFavorite}>
+            Eliminar de favoritos
+          </button>
+        ) : (
+          <button className={Style.favoriteAdd} onClick={handleAddFavorite}>
+            Agregar a favoritos
+          </button>
+        )}
       </div>
-      <div>
-        <p>
-          <span>Especie: </span>
-          {character.species}
-        </p>
-        <p>
-          <span>origen: </span>
-          {character.origin}
-        </p>
-        <p>
-          <span>Locacion: </span>
-          {character.location}
-        </p>
-        <p>
-          <span>Estado: </span>
-          {character.status}
-        </p>
-      </div>
-
-      {myFavorites.map((favorite) => favorite.id).includes(character.id) ? (
-        <button className={Style.favoriteRemove} onClick={handleRemoveFavorite}>
-          Eliminar de favoritos
-        </button>
-      ) : (
-        <button className={Style.favoriteAdd} onClick={handleAddFavorite}>
-          Agregar a favoritos
-        </button>
-      )}
     </div>
   );
 }

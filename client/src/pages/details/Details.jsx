@@ -1,35 +1,32 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import DetailsCard from "../../components/detailsCard/DetailsCard";
 import LoadingSpinner from "../../components/loadingSpinner/LoadingSpinner";
-import useServices from "../../services/useServices";
+import AppContext from "../../context/appContext";
 import Style from "./details.module.css";
 
 function Details() {
   const params = useParams();
   const { id } = params;
-  const [character, setCharacter] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const { characters } = useServices();
+  const { characterDetails, addCharacterDetails, removeCharacterDetails, loading } = useContext(AppContext);
 
   useEffect(() => {
     (async () => {
-      const { data } = await characters.getOne(id);
-      setCharacter(data);
-      setLoading(false);
+      await addCharacterDetails(id);
     })();
+    return () => removeCharacterDetails();
   }, []);
 
-  if (loading)
+  if (loading || !characterDetails)
     return (
-      <div>
+      <div className={Style.details}>
         <LoadingSpinner />
       </div>
     );
 
   return (
     <div className={Style.details}>
-      <DetailsCard character={character} />
+      <DetailsCard character={characterDetails} />
     </div>
   );
 }
